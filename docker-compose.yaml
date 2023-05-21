@@ -1,24 +1,23 @@
 version: '3'
 services:
-  postgres:
-    container_name: postgre-db
+  postgres-db:
     image: postgres:15-alpine
     hostname: postgre
     ports:
       - "6543:5432"
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgre
       POSTGRES_PASSWORD: postgre
       POSTGRES_DB: express
-    volumes:
-      - ./postgre-data:/var/lib/postgresql/data
     restart: unless-stopped
 
   pgadmin:
     container_name: pgAdmin
     image: dpage/pgadmin4
     depends_on:
-      - postgres
+      - postgres-db
     ports:
       - "5555:80"
     environment:
@@ -37,4 +36,5 @@ services:
         - MONGO_INITDB_ROOT_PASSWORD=mongo
 
 volumes:
-  postgres-data:
+  postgres-db:
+    driver: local
