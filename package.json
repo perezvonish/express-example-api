@@ -6,7 +6,6 @@
   "scripts": {
     "start": "tsc && node dist/app.js",
     "lint": "eslint . --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "migration:show": "npm run typeorm migration:show -- -d src/infrastructure/postgre/data-source.ts",
     "migration:generate": "npm run typeorm migration:generate -- -d src/infrastructure/postgre/data-source.ts",
     "migration:create": "npm run typeorm migration:create"

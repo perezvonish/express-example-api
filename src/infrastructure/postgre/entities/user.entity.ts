@@ -7,32 +7,34 @@ export class UserEntity extends BaseEntity {
     @Column({
         type: "character varying"
     })
-    username: string
+    username: string;
 
     @Column({
         type: "character varying"
     })
-    password: string
+    password: string;
 
     @Column({
         type: "character varying"
     })
-    firstName?: string
+    firstName?: string;
 
     @Column({
-        type: "character varying"
+        type: "character varying",
+        nullable: true
     })
-    secondName?: string
+    secondName?: string | null;
 
     @Column({
         type: "int",
     })
-    age: number
+    age: number;
 
     @Column({
-        type: "boolean"
+        type: "boolean",
+        default: true
     })
-    isAdmin: boolean
+    isAdmin: boolean;
 
     @OneToMany(() => PostEntity, (posts) => posts.user)
     posts: PostEntity[]
