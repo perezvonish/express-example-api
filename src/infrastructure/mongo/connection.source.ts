@@ -12,7 +12,7 @@ export async function initMongo() {
 
 
 async function connectMongo(host, port, username, password) {
-    await mongoose.connect(`mongodb://${host}:${port}/`)
+    await mongoose.connect(`mongodb://${username}:${password}${host}:${port}/`)
         .catch(() => {
         throw new Error("Can not connect to mongo.")
     })

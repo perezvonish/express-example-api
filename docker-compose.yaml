@@ -2,7 +2,7 @@ version: '3'
 services:
   postgres:
     container_name: postgre-db
-    image: postgres
+    image: postgres:15-alpine
     hostname: postgre
     ports:
       - "6543:5432"
@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgre
       POSTGRES_DB: express
     volumes:
-      - postgre-data:/var/lib/postgresql/data
+      - ./postgre-data:/var/lib/postgresql/data
     restart: unless-stopped
 
   pgadmin:
