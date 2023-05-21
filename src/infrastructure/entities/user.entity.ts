@@ -1,23 +1,39 @@
-import {Column, Entity} from "typeorm";
+import {Column, Entity, OneToMany} from "typeorm";
 import {BaseEntity} from "./base.entity";
+import {PostEntity} from "./post.entity";
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
-    @Column()
+    @Column({
+        type: "character varying"
+    })
     username: string
 
-    @Column()
+    @Column({
+        type: "character varying"
+    })
     password: string
 
-    @Column()
-    firstName: string
+    @Column({
+        type: "character varying"
+    })
+    firstName?: string
 
-    @Column()
-    secondName: string
+    @Column({
+        type: "character varying"
+    })
+    secondName?: string
 
-    @Column()
+    @Column({
+        type: "int",
+    })
     age: number
 
-    @Column()
+    @Column({
+        type: "boolean"
+    })
     isAdmin: boolean
+
+    @OneToMany(() => PostEntity, (posts) => posts.user)
+    posts: PostEntity[]
 }
