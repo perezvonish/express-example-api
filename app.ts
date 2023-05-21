@@ -19,7 +19,7 @@ app.use('/users', routes.usersController)
 app.use('/posts', routes.postsController)
 
 async function init(app: Express) {
-    // await initMongo();
+    await initMongo();
 
     app.listen(process.env.SERVER_PORT, () => {
         console.log(`Server started on port --> ${process.env.SERVER_PORT}`)
