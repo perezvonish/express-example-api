@@ -1,7 +1,7 @@
 import {Column, Entity, ManyToOne} from "typeorm";
 import {BaseEntity} from "./base.entity";
 import {UserEntity} from "./user.entity";
-import {PostModerationEnum} from "../../application/post-moderation.enum";
+import {PostModerationEnum} from "../../../application/post-moderation.enum";
 
 @Entity("posts")
 export class PostEntity extends BaseEntity {
