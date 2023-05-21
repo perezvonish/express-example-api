@@ -1,0 +1,5 @@
+export enum PostModerationEnum {
+    ON_MODERATION = "ON_MODERATION",
+    MODERATED = "MODERATED",
+    REJECTED_MODERATION = "REJECTED_MODERATION"
+}
