@@ -1,7 +1,5 @@
-import {BaseService} from "./base.service";
-import {UserEntity} from "../../infrastructure/postgre/entities/user.entity";
-import {Repository} from "typeorm";
+import {UsersRepository} from "../repositories/users.repository";
 
-export class UsersService extends BaseService {
-    private readonly userRepository: Repository<UserEntity> = this.dataSource.getRepository(UserEntity)
+export class UsersService {
+    private readonly userRepository: UsersRepository
 }
